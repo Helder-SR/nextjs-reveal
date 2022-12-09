@@ -1,36 +1,43 @@
 
 import Reveal from 'reveal.js';
 import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js';
+import React, { useState, useEffect } from 'react';
 
 import '/node_modules/reveal.js/dist/reveal.css';
 import '/node_modules/reveal.js/dist/theme/black.css';
 
 
-Reveal.initialize({
-    //hash:true,
-    controls:true,
-    width:1000,
-    height:1000,
-    margin: 0.1,
-    display:true,
 
-
-
-    // Bounds for smallest/largest possible scale to apply to content
-    minScale: 0.2,
-    maxScale: 1.5,
-
-    plugins: [ Markdown ]
-
-});
 
 export default function Slide(){
+
+    useEffect(() => {
+        Reveal.initialize({
+            //hash:true,
+            controls:true,
+            width:1000,
+            height:1000,
+            margin: 0.1,
+            display:true,
+        
+        
+        
+            // Bounds for smallest/largest possible scale to apply to content
+            minScale: 0.2,
+            maxScale: 1.5,
+        
+            plugins: [ Markdown ]
+        
+        });
+    }, []);
+
+
     return(
         <>
             <div class="reveal">
 			<div class="slides">
 				<section>Slide 1</section>
-                <section data-state="make-it-pop">
+                <section>
                     <section>Vertical Slide 1</section>
                     <section>Vertical Slide 2</section>
                 </section>
@@ -48,6 +55,7 @@ export default function Slide(){
 			</div>
 		</div>
         </>
+        
         
     )
 }
